@@ -18,12 +18,14 @@ It is rendered by a controller, you will find it under <code>/controllers/main.l
             end
         end 
         page:print("</tr></thead><tbody>")
-        for _, value_table in pairs(model.attributes) do
-            for i, entry in ipairs(entries[name]) do
-                for i, v in pairs(value_table) do
-                    page:print("<td>"..entry[i].."</td>")
+        for _, entry in ipairs(entries[name]) do
+            page:print("<tr>")
+            for _, value_table in pairs(model.attributes) do
+                for ii, v in pairs(value_table) do
+                    page:print("<td>"..entry[ii].."</td>")
                 end
             end
+            page:print("</tr>")
         end
         page:print("</tbody></table>")
         page:print("</ul>")
